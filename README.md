@@ -2,7 +2,7 @@
 
 ## 🚀 Live Demo
 
-[Live Site Link](https://task-management-4a8c7.web.app)
+[Live Site Link](https://task-management-application-blush.vercel.app)
 
 ## 📌 Description
 
