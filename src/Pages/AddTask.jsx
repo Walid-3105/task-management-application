@@ -8,6 +8,7 @@ const AddTask = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("To-Do");
+  const [deadline, setDeadline] = useState("");
   const [loading, setLoading] = useState(false);
   const axiosPublic = useAxios();
 
@@ -32,8 +33,9 @@ const AddTask = () => {
       email: user.email,
       title,
       description,
-      timestamp: new Date().toLocaleString(),
       category,
+      deadline,
+      type: "active",
     };
 
     try {
@@ -45,6 +47,7 @@ const AddTask = () => {
         setTitle("");
         setDescription("");
         setCategory("To-Do");
+        setDeadline("");
       } else {
         toast.error("Failed to add task, please try again!");
       }
@@ -57,7 +60,7 @@ const AddTask = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-32 p-6 bg-white shadow-md rounded-md">
+    <div className="max-w-md mx-auto mt-16 p-6 bg-white shadow-md rounded-md">
       <h2 className="text-xl font-bold mb-4">Add New Task</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -96,7 +99,15 @@ const AddTask = () => {
             <option value="Done">Done</option>
           </select>
         </div>
-
+        <div>
+          <input
+            onChange={(e) => setDeadline(e.target.value)}
+            type="date"
+            value={deadline}
+            name=""
+            id=""
+          />
+        </div>
         {/* Submit Button */}
         <button
           type="submit"

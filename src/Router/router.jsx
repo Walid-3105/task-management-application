@@ -22,6 +22,12 @@ export const router = createBrowserRouter([
             <Tasks />
           </PrivateRoute>
         ),
+        children: [
+          {
+            path: "allTasks",
+            element: <h3>Hello</h3>,
+          },
+        ],
       },
       {
         path: "addTask",
